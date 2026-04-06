@@ -44,7 +44,7 @@ def evaluate_answer(original, target_rule, student_answer):
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile",
+        model="deepseek-r1-distill-llama-70b",
         response_format={"type": "json_object"}
     )
     return json.loads(chat_completion.choices[0].message.content)
@@ -106,9 +106,9 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
     
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile",
+        model="deepseek-r1-distill-llama-70b",
         response_format={"type": "json_object"},
-        temperature=1.0 # Keep it high for creativity
+        temperature=0.6 # Keep it high for creativity
     )
     return json.loads(chat_completion.choices[0].message.content)
 

@@ -36,7 +36,7 @@ def evaluate_answer(original, target_rule, student_answer):
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama3-70b-8192",
+        model="llama-3.3-70b-versatile", # <--- UPDATE THIS LINE
         response_format={"type": "json_object"}
     )
     return json.loads(chat_completion.choices[0].message.content)
@@ -56,7 +56,7 @@ def generate_new_question(rule_desc, examples):
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama3-70b-8192",
+        model="llama-3.3-70b-versatile", # <--- UPDATE THIS LINE
         response_format={"type": "json_object"}
     )
     return json.loads(chat_completion.choices[0].message.content)

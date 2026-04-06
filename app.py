@@ -4,7 +4,7 @@ import random
 from groq import Groq
 
 # --- CONFIGURATION ---
-# Pulls from Streamlit Cloud Secrets
+# Accesses your secret key from the Streamlit Cloud dashboard
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- FUNCTIONS ---
@@ -14,7 +14,7 @@ def load_data():
         return json.load(file)
 
 def clean_json(text):
-    """Removes markdown formatting if the AI includes it"""
+    """Safety feature: Removes markdown formatting if the AI includes it"""
     text = text.strip()
     if text.startswith('```'):
         text = text.split('\n', 1)[1]
@@ -23,17 +23,21 @@ def clean_json(text):
     return json.loads(text)
 
 def evaluate_answer(original, target_rule, student_answer):
-    """Evaluates the student's answer using Groq (Llama 3.3)"""
+    """Smarter, encouraging evaluation using Llama 3.3 70B"""
     prompt = f"""
     You are a helpful and encouraging English Grammar Tutor.
-    Task: {target_rule}
-    Original: "{original}"
+    Rule: {target_rule}
+    Original Sentence: "{original}"
     Student's Answer: "{student_answer}"
 
     EVALUATION CRITERIA:
     1. Did they follow the specific transformation rule?
     2. Did they keep the original meaning?
     3. Are there minor typos? (Be lenient on one small typo, but strict on grammar).
+
+    If the answer is logically correct but doesn't follow the formal rule perfectly, 
+    mark it as 'is_correct': false but give feedback that is encouraging, 
+    explaining why the formal rule is different.
 
     Respond STRICTLY in valid JSON:
     {{"is_correct": true, "feedback": "Your encouraging explanation here."}}
@@ -45,36 +49,62 @@ def evaluate_answer(original, target_rule, student_answer):
     )
     return json.loads(chat_completion.choices[0].message.content)
 
-def generate_new_question(rule_desc, examples, current_sentence):
-    """Generates a new question and avoids the current one."""
+def generate_new_question(rule_desc, category, examples, current_sentence):
+    """Generates a new question with forced variety in transformation direction."""
+    
+    # Logic to force variety based on the category
+    if "Simple, Complex" in category:
+        types = ["Simple", "Complex", "Compound"]
+    elif "Affirmative" in category:
+        types = ["Affirmative", "Negative"]
+    elif "Exclamatory" in category:
+        types = ["Assertive", "Exclamatory"]
+    elif "Interrogative" in category:
+        types = ["Assertive", "Interrogative"]
+    elif "Degree" in category:
+        types = ["Positive", "Comparative", "Superlative"]
+    else:
+        types = ["Original", "Converted"]
+
+    # Randomly pick two DIFFERENT types to force variety
+    source, target = random.sample(types, 2)
+    forced_instruction = f"Convert this {source} sentence to {target}."
+
     prompt = f"""
     You are an expert English test creator. 
-    Rule to test: "{rule_desc}"
-    Examples of this rule: {examples}
+    Rule: "{rule_desc}"
     
-    CRITICAL: Do NOT generate this sentence: "{current_sentence}"
-    Generate a BRAND NEW, unique sentence using different nouns and verbs.
+    TASK: Generate a BRAND NEW sentence.
+    REQUIRED DIRECTION: {forced_instruction}
+    
+    CRITICAL: 
+    1. Do NOT use this sentence: "{current_sentence}"
+    2. Do NOT copy the examples: {examples}
     
     Respond STRICTLY in valid JSON format:
-    {{"instruction": "Convert this sentence...", "original": "...", "converted": "..."}}
+    {{
+        "instruction": "{forced_instruction}",
+        "original": "A clear {source} sentence",
+        "converted": "The correct {target} sentence"
+    }}
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"},
-        temperature=0.9 
+        temperature=1.0 # High temperature for maximum variety
     )
     return json.loads(chat_completion.choices[0].message.content)
 
-# --- DATA LOADING & STATE MANAGEMENT ---
-# THE FIX: This line must exist here so all functions can see 'data'
+# --- DATA LOADING ---
 data = load_data()
 
+# --- STATE MANAGEMENT ---
 def pick_new_rule():
     if 'history' not in st.session_state:
         st.session_state.history = []
 
-    # Pick a random rule
+    # Pick a random category and rule
     category = random.choice(data['transformation_categories'])
     rule = random.choice(category['rules'])
     
@@ -86,7 +116,7 @@ def pick_new_rule():
         else:
             break
 
-    # Update History
+    # Update history tracking
     st.session_state.history.append(example['original'])
     if len(st.session_state.history) > 10:
         st.session_state.history.pop(0)
@@ -103,6 +133,7 @@ def pick_new_rule():
 def generate_same_rule():
     new_q = generate_new_question(
         st.session_state.rule_desc, 
+        st.session_state.category,
         st.session_state.examples,
         st.session_state.original_sentence
     )
@@ -112,23 +143,29 @@ def generate_same_rule():
     st.session_state.evaluated = False
     st.session_state.user_answer = ""
 
-# Start the app logic
+# Initialization
 if 'rule_desc' not in st.session_state:
     pick_new_rule()
 
 # --- USER INTERFACE ---
 st.title("🎯 Grammar: Learning by Doing")
+
 st.markdown(f"### Topic: {st.session_state.category}")
+
 st.markdown("---")
 st.markdown("#### 📖 The Rule to Apply:")
 st.info(f"**{st.session_state.rule_desc}**")
 st.markdown("---")
+
 st.markdown("#### ✍️ Your Task:")
 st.markdown(f"**{st.session_state.instruction}**")
 st.write("") 
+
+# Heading 3 makes the sentence bold and clean without the gray blockquote
 st.markdown(f"### {st.session_state.original_sentence}") 
 st.write("")
 
+# Form for submission
 if not st.session_state.evaluated:
     with st.form("answer_form"):
         user_input = st.text_input("Type your converted sentence here:")
@@ -148,13 +185,16 @@ if not st.session_state.evaluated:
                         st.session_state.evaluated = True
                         st.rerun()
                     except Exception as e:
-                        st.error(f"AI Error. Please try again. (Details: {e})")
+                        st.error(f"Error: {e}")
             else:
                 st.warning("Please type an answer first.")
 
+# Result Display
 if st.session_state.evaluated:
     st.markdown(f"**Your Answer:** {st.session_state.user_answer}")
+    
     result = st.session_state.evaluation_result
+    
     if result['is_correct']:
         st.success(f"**✅ Correct!** {result['feedback']}")
     else:
@@ -162,6 +202,8 @@ if st.session_state.evaluated:
         st.warning(f"**One valid answer:** {st.session_state.correct_example}")
     
     st.markdown("---")
+    
+    # Action Buttons
     col1, col2 = st.columns(2)
     with col1:
         if st.button("🔄 Try Another (Same Rule)", use_container_width=True):

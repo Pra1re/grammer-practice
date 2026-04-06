@@ -41,34 +41,50 @@ def evaluate_answer(original, target_rule, student_answer):
     )
     return json.loads(chat_completion.choices[0].message.content)
 
-def generate_new_question(rule_desc, examples):
-    """Generates a new question using Groq (Llama 3)"""
+# --- UPDATED FUNCTIONS ---
+
+def generate_new_question(rule_desc, examples, current_sentence):
+    """Generates a new question and tells the AI to avoid the current one."""
     prompt = f"""
     You are an expert English test creator. 
     Rule to test: "{rule_desc}"
     Examples of this rule: {examples}
     
-    Generate ONE brand new, unique sentence that tests this exact rule.
-    Do NOT copy the examples. Use different vocabulary.
+    CRITICAL: Do NOT generate this sentence: "{current_sentence}"
+    Generate a BRAND NEW, unique sentence using different nouns and verbs.
     
-    Respond STRICTLY in valid JSON format with three keys: 'instruction', 'original', and 'converted'.
+    Respond STRICTLY in valid JSON format:
     {{"instruction": "Convert this sentence...", "original": "...", "converted": "..."}}
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile", # <--- UPDATE THIS LINE
-        response_format={"type": "json_object"}
+        model="llama-3.3-70b-versatile",
+        response_format={"type": "json_object"},
+        temperature=0.9 # High temperature makes the AI more creative/random
     )
     return json.loads(chat_completion.choices[0].message.content)
 
-# --- STATE MANAGEMENT ---
-data = load_data()
-
 def pick_new_rule():
-    category = random.choice(data['transformation_categories'])
-    rule = random.choice(category['rules'])
-    example = random.choice(rule['examples'])
-    
+    # Initialize history if it doesn't exist
+    if 'history' not in st.session_state:
+        st.session_state.history = []
+
+    # Try picking a random rule that isn't in history
+    max_tries = 10
+    for _ in range(max_tries):
+        category = random.choice(data['transformation_categories'])
+        rule = random.choice(category['rules'])
+        example = random.choice(rule['examples'])
+        
+        # If this sentence isn't the one we just did, take it
+        if example['original'] not in st.session_state.history:
+            break
+
+    # Add to history and keep only the last 10 items
+    st.session_state.history.append(example['original'])
+    if len(st.session_state.history) > 10:
+        st.session_state.history.pop(0)
+
     st.session_state.category = category['category_name']
     st.session_state.rule_desc = rule['rule_description']
     st.session_state.examples = rule['examples']
@@ -79,7 +95,12 @@ def pick_new_rule():
     st.session_state.user_answer = ""
 
 def generate_same_rule():
-    new_q = generate_new_question(st.session_state.rule_desc, st.session_state.examples)
+    # Pass the CURRENT sentence so the AI knows to avoid it
+    new_q = generate_new_question(
+        st.session_state.rule_desc, 
+        st.session_state.examples,
+        st.session_state.original_sentence
+    )
     st.session_state.instruction = new_q.get('instruction', 'Convert this sentence:')
     st.session_state.original_sentence = new_q['original']
     st.session_state.correct_example = new_q['converted']

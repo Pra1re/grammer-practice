@@ -23,29 +23,40 @@ def clean_json(text):
     return json.loads(text)
 
 def evaluate_answer(original, target_rule, student_answer):
-    """Smarter, encouraging evaluation using Llama 3.3 70B"""
+    """Few-Shot Evaluation to prevent logic hallucination."""
     prompt = f"""
-    You are a helpful and encouraging English Grammar Tutor.
-    Rule: {target_rule}
-    Original Sentence: "{original}"
-    Student's Answer: "{student_answer}"
+    You are a strict but fair English Grammar Examiner.
+    
+    TASK DESCRIPTION: {target_rule}
+    
+    EXAMPLES OF CORRECT LOGIC:
+    - Task: Convert Assertive to Interrogative. 
+      Original: "He is a boy." -> Answer: "Isn't he a boy?" (CORRECT)
+    - Task: Convert Imperative to Assertive.
+      Original: "Stop talking." -> Answer: "You should stop talking." (CORRECT)
+    
+    CURRENT EVALUATION:
+    - Task: "{target_rule}"
+    - Original Sentence: "{original}"
+    - Student's Answer: "{student_answer}"
 
-    EVALUATION CRITERIA:
-    1. Did they follow the specific transformation rule?
-    2. Did they keep the original meaning?
-    3. Are there minor typos? (Be lenient on one small typo, but strict on grammar).
+    INSTRUCTIONS:
+    1. Identify the 'Source Type' and 'Target Type' from the Task.
+    2. Check if the Student's Answer actually matches the 'Target Type'.
+    3. Check if the meaning is identical to the Original.
+    4. Ignore minor capitalization or punctuation errors, but mention them in feedback.
 
-    If the answer is logically correct but doesn't follow the formal rule perfectly, 
-    mark it as 'is_correct': false but give feedback that is encouraging, 
-    explaining why the formal rule is different.
-
-    Respond STRICTLY in valid JSON:
-    {{"is_correct": true, "feedback": "Your encouraging explanation here."}}
+    Respond ONLY in this JSON format:
+    {{
+        "is_correct": true/false,
+        "feedback": "Explain specifically why it is correct or what rule was broken."
+    }}
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile",
-        response_format={"type": "json_object"}
+        model="llama-3.3-70b-versatile", # Switching back to this as it's more stable than the OSS 120B
+        response_format={"type": "json_object"},
+        temperature=0.2 # Keeping it very low for strict logic
     )
     return json.loads(chat_completion.choices[0].message.content)
 

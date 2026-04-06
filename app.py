@@ -4,7 +4,7 @@ import random
 from groq import Groq
 
 # --- CONFIGURATION ---
-# This pulls directly from your Streamlit Cloud Secrets
+# Pulls from Streamlit Cloud Secrets
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- FUNCTIONS ---
@@ -23,28 +23,30 @@ def clean_json(text):
     return json.loads(text)
 
 def evaluate_answer(original, target_rule, student_answer):
-    """Evaluates the student's answer using Groq (Llama 3)"""
+    """Evaluates the student's answer using Groq (Llama 3.3)"""
     prompt = f"""
-    You are an expert, strict English grammar examiner. 
-    Original Sentence: "{original}"
-    Target Transformation Rule: "{target_rule}"
+    You are a helpful and encouraging English Grammar Tutor.
+    Task: {target_rule}
+    Original: "{original}"
     Student's Answer: "{student_answer}"
-    
-    Did the Student successfully apply the rule and maintain the exact meaning of the Original Sentence?
-    Respond STRICTLY in valid JSON format:
-    {{"is_correct": true, "feedback": "1-2 sentence explanation."}}
+
+    EVALUATION CRITERIA:
+    1. Did they follow the specific transformation rule?
+    2. Did they keep the original meaning?
+    3. Are there minor typos? (Be lenient on one small typo, but strict on grammar).
+
+    Respond STRICTLY in valid JSON:
+    {{"is_correct": true, "feedback": "Your encouraging explanation here."}}
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="llama-3.3-70b-versatile", # <--- UPDATE THIS LINE
+        model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"}
     )
     return json.loads(chat_completion.choices[0].message.content)
 
-# --- UPDATED FUNCTIONS ---
-
 def generate_new_question(rule_desc, examples, current_sentence):
-    """Generates a new question and tells the AI to avoid the current one."""
+    """Generates a new question and avoids the current one."""
     prompt = f"""
     You are an expert English test creator. 
     Rule to test: "{rule_desc}"
@@ -60,27 +62,31 @@ def generate_new_question(rule_desc, examples, current_sentence):
         messages=[{"role": "user", "content": prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"},
-        temperature=0.9 # High temperature makes the AI more creative/random
+        temperature=0.9 
     )
     return json.loads(chat_completion.choices[0].message.content)
 
+# --- DATA LOADING & STATE MANAGEMENT ---
+# THE FIX: This line must exist here so all functions can see 'data'
+data = load_data()
+
 def pick_new_rule():
-    # Initialize history if it doesn't exist
     if 'history' not in st.session_state:
         st.session_state.history = []
 
-    # Try picking a random rule that isn't in history
-    max_tries = 10
-    for _ in range(max_tries):
-        category = random.choice(data['transformation_categories'])
-        rule = random.choice(category['rules'])
-        example = random.choice(rule['examples'])
-        
-        # If this sentence isn't the one we just did, take it
-        if example['original'] not in st.session_state.history:
+    # Pick a random rule
+    category = random.choice(data['transformation_categories'])
+    rule = random.choice(category['rules'])
+    
+    # Try to pick an example that isn't in recent history
+    example = random.choice(rule['examples'])
+    for _ in range(5): 
+        if example['original'] in st.session_state.history:
+            example = random.choice(rule['examples'])
+        else:
             break
 
-    # Add to history and keep only the last 10 items
+    # Update History
     st.session_state.history.append(example['original'])
     if len(st.session_state.history) > 10:
         st.session_state.history.pop(0)
@@ -88,14 +94,13 @@ def pick_new_rule():
     st.session_state.category = category['category_name']
     st.session_state.rule_desc = rule['rule_description']
     st.session_state.examples = rule['examples']
-    st.session_state.instruction = example.get('instruction', 'Convert this sentence according to the rule:') 
+    st.session_state.instruction = example.get('instruction', 'Convert this sentence:') 
     st.session_state.original_sentence = example['original']
     st.session_state.correct_example = example['converted']
     st.session_state.evaluated = False
     st.session_state.user_answer = ""
 
 def generate_same_rule():
-    # Pass the CURRENT sentence so the AI knows to avoid it
     new_q = generate_new_question(
         st.session_state.rule_desc, 
         st.session_state.examples,
@@ -107,19 +112,17 @@ def generate_same_rule():
     st.session_state.evaluated = False
     st.session_state.user_answer = ""
 
+# Start the app logic
 if 'rule_desc' not in st.session_state:
     pick_new_rule()
 
 # --- USER INTERFACE ---
 st.title("🎯 Grammar: Learning by Doing")
-
 st.markdown(f"### Topic: {st.session_state.category}")
-
 st.markdown("---")
 st.markdown("#### 📖 The Rule to Apply:")
 st.info(f"**{st.session_state.rule_desc}**")
 st.markdown("---")
-
 st.markdown("#### ✍️ Your Task:")
 st.markdown(f"**{st.session_state.instruction}**")
 st.write("") 
@@ -133,7 +136,7 @@ if not st.session_state.evaluated:
         
         if submitted:
             if user_input:
-                with st.spinner("AI is grading your answer..."):
+                with st.spinner("AI is grading..."):
                     try:
                         result = evaluate_answer(
                             st.session_state.original_sentence, 
@@ -145,15 +148,13 @@ if not st.session_state.evaluated:
                         st.session_state.evaluated = True
                         st.rerun()
                     except Exception as e:
-                        st.error(f"Error connecting to AI. Please try again. (Details: {e})")
+                        st.error(f"AI Error. Please try again. (Details: {e})")
             else:
                 st.warning("Please type an answer first.")
 
 if st.session_state.evaluated:
     st.markdown(f"**Your Answer:** {st.session_state.user_answer}")
-    
     result = st.session_state.evaluation_result
-    
     if result['is_correct']:
         st.success(f"**✅ Correct!** {result['feedback']}")
     else:
@@ -161,11 +162,10 @@ if st.session_state.evaluated:
         st.warning(f"**One valid answer:** {st.session_state.correct_example}")
     
     st.markdown("---")
-    
     col1, col2 = st.columns(2)
     with col1:
         if st.button("🔄 Try Another (Same Rule)", use_container_width=True):
-            with st.spinner("Generating new question..."):
+            with st.spinner("Generating..."):
                 generate_same_rule()
                 st.rerun()
     with col2:

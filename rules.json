@@ -260,41 +260,41 @@
         }
       ]
     },
-    {
-      "category_name": "Degree of Comparison Transformations",
-      "rules": [
-        {
-          "rule_description": "If it says 'One of the [best/largest]', change it to 'Very few [things] are as [good/large] as...'. If it says 'The [best/largest]', change it to 'No other [thing] is as [good/large] as...'",
-          "examples": [
-            {
-              "instruction": "Convert this Superlative sentence to Positive.",
-              "original": "Jackfruit is one of the largest fruits of Bangladesh.",
-              "converted": "Very few fruits of Bangladesh are as large as jackfruit."
-            },
-            {
-              "instruction": "Convert this Positive sentence to Superlative.",
-              "original": "No other person is as hated as a corrupt person.",
-              "converted": "A corrupt person is the most hated person."
-            }
-          ]
-        },
-        {
-          "rule_description": "To change a comparison, flip the order of the two things being compared. Then, make the sentence negative (add 'not') and use the pattern 'as [adjective] as'.",
-          "examples": [
-            {
-              "instruction": "Convert this Comparative sentence to Positive.",
-              "original": "Reading books is nobler than any other habit.",
-              "converted": "No other habit is as noble as reading books."
-            },
-            {
-              "instruction": "Convert this Comparative sentence to Positive.",
-              "original": "He is older than I.",
-              "converted": "I am not as old as him."
-            }
-          ]
-        }
-      ]
-    },
+    // {
+    //   "category_name": "Degree of Comparison Transformations",
+    //   "rules": [
+    //     {
+    //       "rule_description": "If it says 'One of the [best/largest]', change it to 'Very few [things] are as [good/large] as...'. If it says 'The [best/largest]', change it to 'No other [thing] is as [good/large] as...'",
+    //       "examples": [
+    //         {
+    //           "instruction": "Convert this Superlative sentence to Positive.",
+    //           "original": "Jackfruit is one of the largest fruits of Bangladesh.",
+    //           "converted": "Very few fruits of Bangladesh are as large as jackfruit."
+    //         },
+    //         {
+    //           "instruction": "Convert this Positive sentence to Superlative.",
+    //           "original": "No other person is as hated as a corrupt person.",
+    //           "converted": "A corrupt person is the most hated person."
+    //         }
+    //       ]
+    //     },
+    //     {
+    //       "rule_description": "To change a comparison, flip the order of the two things being compared. Then, make the sentence negative (add 'not') and use the pattern 'as [adjective] as'.",
+    //       "examples": [
+    //         {
+    //           "instruction": "Convert this Comparative sentence to Positive.",
+    //           "original": "Reading books is nobler than any other habit.",
+    //           "converted": "No other habit is as noble as reading books."
+    //         },
+    //         {
+    //           "instruction": "Convert this Comparative sentence to Positive.",
+    //           "original": "He is older than I.",
+    //           "converted": "I am not as old as him."
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // },
     {
       "category_name": "Assertive to Imperative and Vice Versa",
       "rules": [

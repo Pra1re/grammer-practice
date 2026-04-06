@@ -50,9 +50,9 @@ def evaluate_answer(original, target_rule, student_answer):
     return json.loads(chat_completion.choices[0].message.content)
 
 def generate_new_question(rule_desc, category, examples, current_sentence):
-    """Generates a new question with forced variety in transformation direction."""
+    """Generates a highly creative new question with forced variety."""
     
-    # Logic to force variety based on the category
+    # 1. Define the possible directions
     if "Simple, Complex" in category:
         types = ["Simple", "Complex", "Compound"]
     elif "Affirmative" in category:
@@ -63,36 +63,52 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
         types = ["Assertive", "Interrogative"]
     elif "Degree" in category:
         types = ["Positive", "Comparative", "Superlative"]
+    elif "Imperative" in category:
+        types = ["Assertive", "Imperative"]
     else:
         types = ["Original", "Converted"]
 
-    # Randomly pick two DIFFERENT types to force variety
+    # 2. Pick the transformation direction
     source, target = random.sample(types, 2)
     forced_instruction = f"Convert this {source} sentence to {target}."
 
+    # 3. Pick a random theme to force creativity
+    themes = [
+        "Deep Sea Exploration", "Cyberpunk Future", "Medieval Fantasy", 
+        "Cooking/Kitchen", "Space Travel", "Time Travel", "Detective Mystery", 
+        "Modern Technology", "Ancient Egypt", "Olympic Sports"
+    ]
+    random_theme = random.choice(themes)
+
     prompt = f"""
-    You are an expert English test creator. 
-    Rule: "{rule_desc}"
+    You are an expert English Grammar Test Creator.
+    Rule to follow: "{rule_desc}"
     
-    TASK: Generate a BRAND NEW sentence.
+    TASK: Generate a unique grammar question.
     REQUIRED DIRECTION: {forced_instruction}
+    THEME/CONTEXT: {random_theme}
     
-    CRITICAL: 
-    1. Do NOT use this sentence: "{current_sentence}"
-    2. Do NOT copy the examples: {examples}
+    CRITICAL CREATIVITY RULES:
+    1. DO NOT use these words/topics from the examples: {examples}
+    2. DO NOT use the current sentence: "{current_sentence}"
+    3. The sentence MUST be about "{random_theme}".
+    4. Use interesting, natural vocabulary. Avoid "The boy runs" level sentences.
+    5. Ensure the 'original' is a perfect example of a {source} sentence.
+    6. Ensure the 'converted' is the perfect {target} version of it.
     
-    Respond STRICTLY in valid JSON format:
+    Respond ONLY in JSON:
     {{
         "instruction": "{forced_instruction}",
-        "original": "A clear {source} sentence",
-        "converted": "The correct {target} sentence"
+        "original": "...",
+        "converted": "..."
     }}
     """
+    
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
         model="llama-3.3-70b-versatile",
         response_format={"type": "json_object"},
-        temperature=1.0 # High temperature for maximum variety
+        temperature=1.0 # Keep it high for creativity
     )
     return json.loads(chat_completion.choices[0].message.content)
 

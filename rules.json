@@ -1,0 +1,319 @@
+{
+  "transformation_categories": [
+    {
+      "category_name": "Affirmative to Negative and Vice Versa",
+      "rules": [
+        {
+          "rule_description": "To keep the exact same meaning while making a sentence negative (or vice versa), change the main describing word to its opposite (like 'fortunate' to 'unfortunate') AND flip the 'not' (if there is a 'not', remove it; if there isn't one, add it).",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "An optimistic person is fortunate.",
+              "converted": "An optimistic person is not unfortunate."
+            },
+            {
+              "instruction": "Convert this Negative sentence to Affirmative.",
+              "original": "I did not shout.",
+              "converted": "I kept quiet."
+            },
+            {
+              "instruction": "Convert this Negative sentence to Affirmative.",
+              "original": "English is not a native language.",
+              "converted": "English is a foreign language."
+            }
+          ]
+        },
+        {
+          "rule_description": "When you see the word 'Only' or 'Alone', change it to 'None but' (if talking about people), 'Nothing but' (if talking about things), or 'Not more than' (if talking about numbers or age).",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "Only the optimistic people are accepted by all.",
+              "converted": "None but the optimistic people are accepted by all."
+            },
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "Only you can do the work.",
+              "converted": "None but you can do the work."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change words of obligation like 'must' or 'have to' into 'cannot but' (and keep the next action word the same) OR 'cannot help' (and add '-ing' to the next action word).",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "You must learn English.",
+              "converted": "You cannot but learn English."
+            },
+            {
+              "instruction": "Convert this Negative sentence to Affirmative.",
+              "original": "We cannot help reading newspaper daily.",
+              "converted": "We must read newspaper daily."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change 'As soon as' at the beginning of the sentence to 'No sooner had', and add the word 'than' into the middle of the sentence.",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "As soon as I saw the tiger, I climbed upon the tree.",
+              "converted": "No sooner had I seen the tiger than I climbed upon the tree."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change the pattern 'Both [A] and [B]' to 'Not only [A] but also [B]'.",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "The electricity lights both the streets and the houses.",
+              "converted": "The electricity lights not only the streets but also the houses."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change 'Every' at the start of a sentence to 'There is no [word] but'. For example, 'Every mother' becomes 'There is no mother but'.",
+          "examples": [
+            {
+              "instruction": "Convert this Affirmative sentence to Negative.",
+              "original": "Everybody loves flowers.",
+              "converted": "There is nobody but loves flowers."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Assertive to Exclamatory and Vice Versa",
+      "rules": [
+        {
+          "rule_description": "If the sentence has 'a very' or 'a great' followed by a noun, start your exclamation with 'What a' or 'What an'. Put the describing words next, and move the subject and verb to the very end of the sentence.",
+          "examples": [
+            {
+              "instruction": "Convert this Assertive sentence to Exclamatory.",
+              "original": "An idle man leads a very miserable life.",
+              "converted": "What a miserable life an idle man leads!"
+            },
+            {
+              "instruction": "Convert this Exclamatory sentence to Assertive.",
+              "original": "What a shameful practice it is!",
+              "converted": "It is a very shameful practice."
+            }
+          ]
+        },
+        {
+          "rule_description": "If the sentence just uses 'very' to describe an adjective (with no noun after it), start your exclamation with 'How'. Put the adjective next, and move the subject and verb to the very end.",
+          "examples": [
+            {
+              "instruction": "Convert this Assertive sentence to Exclamatory.",
+              "original": "They dance most vigorously to find the nectar plentiful.",
+              "converted": "How vigorously they dance to find the nectar plentiful!"
+            },
+            {
+              "instruction": "Convert this Exclamatory sentence to Assertive.",
+              "original": "How devastating the war is!",
+              "converted": "The war is very devastating."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change phrases like 'I wish' or 'Would that' by starting the sentence instead with 'If I could', 'O that', or 'Had I'.",
+          "examples": [
+            {
+              "instruction": "Convert this Exclamatory sentence to Assertive.",
+              "original": "Would that I could open a Facebook account.",
+              "converted": "I wish I could open a Facebook account."
+            },
+            {
+              "instruction": "Convert this Exclamatory sentence to Assertive.",
+              "original": "Had I been rich!",
+              "converted": "I wish I had been rich."
+            }
+          ]
+        },
+        {
+          "rule_description": "For sentences about happiness, use 'Hurrah!'. For sentences about sadness, use 'Alas!' and remove phrases like 'It is a matter of sorrow that'.",
+          "examples": [
+            {
+              "instruction": "Convert this Assertive sentence to Exclamatory.",
+              "original": "I am aggrieved that I am undone.",
+              "converted": "Alas! I am undone."
+            },
+            {
+              "instruction": "Convert this Assertive sentence to Exclamatory.",
+              "original": "We rejoice that Bangladesh has won the spirit of Cricket Award.",
+              "converted": "Hurrah! Bangladesh has won the spirit of Cricket Award."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Assertive to Interrogative and Vice Versa",
+      "rules": [
+        {
+          "rule_description": "To make a question, move the helping verb (like is, are, can, do) to the front of the sentence. Then, flip the 'not' (if the sentence doesn't have a 'not', add an 'n't' to the front verb; if it already has one, remove it).",
+          "examples": [
+            {
+              "instruction": "Convert this Assertive sentence to Interrogative.",
+              "original": "The bee is one of the busiest insects.",
+              "converted": "Isn't the bee one of the busiest insects?"
+            },
+            {
+              "instruction": "Convert this Interrogative sentence to Assertive.",
+              "original": "Can't girls work as much as boys?",
+              "converted": "Girls can work as much as boys."
+            }
+          ]
+        },
+        {
+          "rule_description": "Change 'Everybody' or 'Everyone' to 'Who does not'. Change 'Nobody' or 'No one' to just 'Who'.",
+          "examples": [
+            {
+              "instruction": "Convert this Interrogative sentence to Assertive.",
+              "original": "Who does not believe this truth?",
+              "converted": "Everybody believes this truth."
+            },
+            {
+              "instruction": "Convert this Assertive sentence to Interrogative.",
+              "original": "Nobody respects him.",
+              "converted": "Who respects him?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Simple, Complex, and Compound Transformations",
+      "rules": [
+        {
+          "rule_description": "To show reason or sequence: \n• Simple: Start with an '-ing' word.\n• Complex: Start the sentence with 'As', 'Since', or 'When'.\n• Compound: Join two complete sentences in the middle with 'and'.",
+          "examples": [
+            {
+              "instruction": "Convert this Compound sentence to Simple.",
+              "original": "Bees collect nectar from the flowers and make honey.",
+              "converted": "Collecting nectar from the flowers, bees make honey."
+            },
+            {
+              "instruction": "Convert this Simple sentence to Complex.",
+              "original": "Seeing the bees, we think of the importance of activity.",
+              "converted": "When we see the bees, we think of the importance of activity."
+            }
+          ]
+        },
+        {
+          "rule_description": "To show purpose: \n• Simple: Connect the action with 'to' or 'in order to'.\n• Complex: Connect the action with 'so that'.\n• Compound: Join two complete sentences with 'and' or 'and so'.",
+          "examples": [
+            {
+              "instruction": "Convert this Complex sentence to Simple.",
+              "original": "We must work hard so that we can earn money.",
+              "converted": "We must work hard to earn money."
+            },
+            {
+              "instruction": "Convert this Simple sentence to Compound.",
+              "original": "Bees store honey in the hive to eat during winter.",
+              "converted": "Bees store honey in the hive and eat it during winter."
+            }
+          ]
+        },
+        {
+          "rule_description": "To show a negative condition: \n• Simple: Start with 'Without + [verb]-ing'.\n• Complex: Start with 'If... not' or 'Unless'.\n• Compound: Join the two ideas in the middle with 'or'.",
+          "examples": [
+            {
+              "instruction": "Convert this Simple sentence to Complex.",
+              "original": "Without learning English we cannot hope to get any good job.",
+              "converted": "If we do not learn English, we cannot hope to get any good job."
+            },
+            {
+              "instruction": "Convert this Complex sentence to Compound.",
+              "original": "Unless you utilize your time properly in youth, you have to pay a heavy price.",
+              "converted": "Utilize your time properly in youth or you have to pay a heavy price."
+            }
+          ]
+        },
+        {
+          "rule_description": "To show a contrast or surprise: \n• Simple: Start with 'In spite of' or 'Despite'.\n• Complex: Start with 'Though' or 'Although'.\n• Compound: Join two complete sentences with 'but'.",
+          "examples": [
+            {
+              "instruction": "Convert this Complex sentence to Compound.",
+              "original": "Though we have strict laws, we are still affected by this evil.",
+              "converted": "We have strict laws but we are still affected by this evil."
+            }
+          ]
+        },
+        {
+          "rule_description": "To describe someone or something: \n• Simple: Just use a describing word (adjective) next to the noun.\n• Complex: Use 'who', 'which', or 'that' to describe the noun.\n• Compound: Break the description into two sentences joined by 'and'.",
+          "examples": [
+            {
+              "instruction": "Convert this Simple sentence to Complex.",
+              "original": "The idle always lag behind.",
+              "converted": "Those who are idle always lag behind."
+            },
+            {
+              "instruction": "Convert this Simple sentence to Complex.",
+              "original": "Industry is the key to success.",
+              "converted": "It is industry which is the key to success."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Degree of Comparison Transformations",
+      "rules": [
+        {
+          "rule_description": "If it says 'One of the [best/largest]', change it to 'Very few [things] are as [good/large] as...'. If it says 'The [best/largest]', change it to 'No other [thing] is as [good/large] as...'",
+          "examples": [
+            {
+              "instruction": "Convert this Superlative sentence to Positive.",
+              "original": "Jackfruit is one of the largest fruits of Bangladesh.",
+              "converted": "Very few fruits of Bangladesh are as large as jackfruit."
+            },
+            {
+              "instruction": "Convert this Positive sentence to Superlative.",
+              "original": "No other person is as hated as a corrupt person.",
+              "converted": "A corrupt person is the most hated person."
+            }
+          ]
+        },
+        {
+          "rule_description": "To change a comparison, flip the order of the two things being compared. Then, make the sentence negative (add 'not') and use the pattern 'as [adjective] as'.",
+          "examples": [
+            {
+              "instruction": "Convert this Comparative sentence to Positive.",
+              "original": "Reading books is nobler than any other habit.",
+              "converted": "No other habit is as noble as reading books."
+            },
+            {
+              "instruction": "Convert this Comparative sentence to Positive.",
+              "original": "He is older than I.",
+              "converted": "I am not as old as him."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category_name": "Assertive to Imperative and Vice Versa",
+      "rules": [
+        {
+          "rule_description": "If the sentence says 'We should', change it to 'Let us'. If it says 'You should', drop the 'You should' entirely and just start the sentence with the action word (like giving a direct command).",
+          "examples": [
+            {
+              "instruction": "Convert this Assertive sentence to Imperative.",
+              "original": "So, we should save the useful forest.",
+              "converted": "Let us save the useful forest."
+            },
+            {
+              "instruction": "Convert this Imperative sentence to Assertive.",
+              "original": "Take care of your health.",
+              "converted": "You should take care of your health."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

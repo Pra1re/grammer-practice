@@ -44,7 +44,7 @@ def evaluate_answer(original, target_rule, student_answer):
     """
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="deepseek-r1-distill-llama-70b",
+        model="openai/gpt-oss-120b",
         response_format={"type": "json_object"}
     )
     return json.loads(chat_completion.choices[0].message.content)
@@ -106,7 +106,7 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
     
     chat_completion = client.chat.completions.create(
         messages=[{"role": "user", "content": prompt}],
-        model="deepseek-r1-distill-llama-70b",
+        model="openai/gpt-oss-120b",
         response_format={"type": "json_object"},
         temperature=0.6 # Keep it high for creativity
     )

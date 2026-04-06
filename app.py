@@ -1,12 +1,11 @@
 import streamlit as st
 import json
 import random
-import google.generativeai as genai
+from groq import Groq
 
 # --- CONFIGURATION ---
-API_KEY = st.secrets["GOOGLE_API_KEY"] 
-genai.configure(api_key=API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+# This pulls directly from your Streamlit Cloud Secrets
+client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- FUNCTIONS ---
 @st.cache_data
@@ -15,7 +14,7 @@ def load_data():
         return json.load(file)
 
 def clean_json(text):
-    """Safety feature: Removes markdown formatting if the AI accidentally includes it"""
+    """Removes markdown formatting if the AI includes it"""
     text = text.strip()
     if text.startswith('```'):
         text = text.split('\n', 1)[1]
@@ -24,7 +23,7 @@ def clean_json(text):
     return json.loads(text)
 
 def evaluate_answer(original, target_rule, student_answer):
-    """Evaluates if the student applied the rule correctly."""
+    """Evaluates the student's answer using Groq (Llama 3)"""
     prompt = f"""
     You are an expert, strict English grammar examiner. 
     Original Sentence: "{original}"
@@ -35,14 +34,15 @@ def evaluate_answer(original, target_rule, student_answer):
     Respond STRICTLY in valid JSON format:
     {{"is_correct": true, "feedback": "1-2 sentence explanation."}}
     """
-    response = model.generate_content(
-        prompt,
-        generation_config=genai.GenerationConfig(response_mime_type="application/json")
+    chat_completion = client.chat.completions.create(
+        messages=[{"role": "user", "content": prompt}],
+        model="llama3-70b-8192",
+        response_format={"type": "json_object"}
     )
-    return clean_json(response.text)
+    return json.loads(chat_completion.choices[0].message.content)
 
 def generate_new_question(rule_desc, examples):
-    """Generates a brand new sentence testing the exact same rule."""
+    """Generates a new question using Groq (Llama 3)"""
     prompt = f"""
     You are an expert English test creator. 
     Rule to test: "{rule_desc}"
@@ -52,14 +52,14 @@ def generate_new_question(rule_desc, examples):
     Do NOT copy the examples. Use different vocabulary.
     
     Respond STRICTLY in valid JSON format with three keys: 'instruction', 'original', and 'converted'.
-    Example format:
-    {{"instruction": "Convert this Simple sentence to Complex.", "original": "The new sentence to convert", "converted": "The correct converted answer"}}
+    {{"instruction": "Convert this sentence...", "original": "...", "converted": "..."}}
     """
-    response = model.generate_content(
-        prompt,
-        generation_config=genai.GenerationConfig(response_mime_type="application/json")
+    chat_completion = client.chat.completions.create(
+        messages=[{"role": "user", "content": prompt}],
+        model="llama3-70b-8192",
+        response_format={"type": "json_object"}
     )
-    return clean_json(response.text)
+    return json.loads(chat_completion.choices[0].message.content)
 
 # --- STATE MANAGEMENT ---
 data = load_data()
@@ -92,7 +92,6 @@ if 'rule_desc' not in st.session_state:
 # --- USER INTERFACE ---
 st.title("🎯 Grammar: Learning by Doing")
 
-# Better Formatting for Reading / Printing
 st.markdown(f"### Topic: {st.session_state.category}")
 
 st.markdown("---")
@@ -102,11 +101,10 @@ st.markdown("---")
 
 st.markdown("#### ✍️ Your Task:")
 st.markdown(f"**{st.session_state.instruction}**")
-st.write("") # Adds a little breathing room
-st.markdown(f"### {st.session_state.original_sentence}") # ### makes it larger, bolder, and not gray
+st.write("") 
+st.markdown(f"### {st.session_state.original_sentence}") 
 st.write("")
 
-# Input Box (Wrapped in a form for stability)
 if not st.session_state.evaluated:
     with st.form("answer_form"):
         user_input = st.text_input("Type your converted sentence here:")
@@ -124,19 +122,17 @@ if not st.session_state.evaluated:
                         st.session_state.evaluation_result = result
                         st.session_state.user_answer = user_input
                         st.session_state.evaluated = True
-                        st.rerun() # Refresh page
+                        st.rerun()
                     except Exception as e:
-                        st.error(f"Network error, please try submitting again. (Details: {e})")
+                        st.error(f"Error connecting to AI. Please try again. (Details: {e})")
             else:
                 st.warning("Please type an answer first.")
 
-# Results & Next Steps
 if st.session_state.evaluated:
     st.markdown(f"**Your Answer:** {st.session_state.user_answer}")
     
     result = st.session_state.evaluation_result
     
-    # Show Grade
     if result['is_correct']:
         st.success(f"**✅ Correct!** {result['feedback']}")
     else:
@@ -145,7 +141,6 @@ if st.session_state.evaluated:
     
     st.markdown("---")
     
-    # Mastery Buttons side-by-side
     col1, col2 = st.columns(2)
     with col1:
         if st.button("🔄 Try Another (Same Rule)", use_container_width=True):
@@ -153,7 +148,6 @@ if st.session_state.evaluated:
                 generate_same_rule()
                 st.rerun()
     with col2:
-        # Highlight the comfy button
         if st.button("✅ I'm Comfortable (Next Rule)", type="primary", use_container_width=True):
             pick_new_rule()
             st.rerun()

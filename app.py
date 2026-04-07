@@ -124,7 +124,33 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
     source, target = random.sample(types, 2)
     forced_instruction = f"Convert this {source} sentence to {target}."
     
-    themes = ["Cyberpunk", "Space Exploration", "Medieval Castle", "Deep Sea", "Time Travel", "Artificial Intelligence", "Climate Change", "Ancient Civilization"]
+    themes = [
+    "Family and Friends",
+    "School and Classrooms",
+    "Food and Cooking",
+    "Pets and Animals",
+    "Weather and Seasons",
+    "Hobbies and Free Time",
+    "Shopping and Markets",
+    "Sports and Games",
+    "Music and Art",
+    "Holidays and Festivals",
+    "Jobs and Professions",
+    "House and Home",
+    "Travel and Vacations",
+    "Health and Sickness",
+    "Books and Reading",
+    "Movies and Entertainment",
+    "Clothes and Fashion",
+    "Chores and Cleaning",
+    "Morning Routines",
+    "Parks and Playgrounds",
+    "Nature and Wildlife",
+    "Transportation and Vehicles",
+    "Money and Shopping",
+    "Emotions and Feelings",
+    "Farming and Agriculture",
+    "City Life and Villages"]
     
     prompt = f"""
     Rule: {rule_desc}. 

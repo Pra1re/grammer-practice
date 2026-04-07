@@ -7,7 +7,7 @@ from groq import Groq
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- FUNCTIONS ---
-@st.cache_data
+#@st.cache_data
 def load_data():
     """Load and validate the JSON rules file."""
     try:

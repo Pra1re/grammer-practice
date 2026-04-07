@@ -174,7 +174,7 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
             messages=[{"role": "user", "content": prompt}],
             model="llama-3.3-70b-versatile",
             response_format={"type": "json_object"},
-            temperature=1.0,
+            temperature=0.2,
             max_tokens=200
         )
         result = json.loads(chat_completion.choices[0].message.content)

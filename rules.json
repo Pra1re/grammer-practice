@@ -9,7 +9,7 @@
             {"instruction": "Affirmative to Interrogative", "original": "The bee is one of the busiest insects.", "converted": "Is the bee one of the busiest insects?"},
             {"instruction": "Affirmative to Interrogative", "original": "Optimism is a great quality.", "converted": "Is optimism a great quality?"},
             {"instruction": "Affirmative to Interrogative", "original": "It is a vivid quality.", "converted": "Is it a vivid quality?"},
-            {"instruction": "Affirmative to Interrogative", "original": "The Sundarbans is one of the largest Mangrove forests in the world.", "converted": "Is the Sundarbans one of the largest Mangrove forests in the world?"},
+            {"instruction": "Affirmative to Interrogative", "original": "The Sundarbans is one of the largest mangrove forests in the world.", "converted": "Is the Sundarbans one of the largest mangrove forests in the world?"},
             {"instruction": "Affirmative to Interrogative", "original": "The Padma is one of the mightiest rivers of Bangladesh.", "converted": "Is the Padma one of the mightiest rivers of Bangladesh?"},
             {"instruction": "Affirmative to Interrogative", "original": "Copying in the exams is one of the greatest social crimes.", "converted": "Is copying in the exams one of the greatest social crimes?"},
             {"instruction": "Affirmative to Interrogative", "original": "A freedom fighter is the greatest son of the soil.", "converted": "Is a freedom fighter the greatest son of the soil?"},
@@ -44,7 +44,7 @@
           ]
         },
         {
-          "rule_description": "For affirmative sentences with 'have/has/had' as main verb, use 'do/does/did' before the subject.",
+          "rule_description": "For affirmative sentences in the present or past indefinite tense, use 'do/does/did' before the subject.",
           "examples": [
             {"instruction": "Affirmative to Interrogative", "original": "Everybody wants to make a good result in the examination.", "converted": "Does everybody want to make a good result in the examination?"},
             {"instruction": "Affirmative to Interrogative", "original": "People of all ages enjoy a moonlit night.", "converted": "Do people of all ages enjoy a moonlit night?"},
@@ -60,10 +60,8 @@
             {"instruction": "Affirmative to Interrogative", "original": "All the students respect him.", "converted": "Do all the students respect him?"},
             {"instruction": "Affirmative to Interrogative", "original": "People of all ages like to watch television.", "converted": "Do people of all ages like to watch television?"},
             {"instruction": "Affirmative to Interrogative", "original": "Most of the people here live in the villages.", "converted": "Do most of the people here live in the villages?"},
-            {"instruction": "Affirmative to Interrogative", "original": "The memorial is visible from far away.", "converted": "Is the memorial visible from far away?"},
-            {"instruction": "Affirmative to Interrogative", "original": "It is spoken all over the world.", "converted": "Is it spoken all over the world?"},
             {"instruction": "Affirmative to Interrogative", "original": "English opens a door to knowledge.", "converted": "Does English open a door to knowledge?"},
-            {"instruction": "Affirmative to Interrogative", "original": "Everyman loves reading interesting stories.", "converted": "Does everyman love reading interesting stories?"},
+            {"instruction": "Affirmative to Interrogative", "original": "Every man loves reading interesting stories.", "converted": "Does every man love reading interesting stories?"},
             {"instruction": "Affirmative to Interrogative", "original": "People suffer a lot from waterlogging.", "converted": "Do people suffer a lot from waterlogging?"}
           ]
         },
@@ -75,14 +73,12 @@
             {"instruction": "Affirmative to Interrogative", "original": "A man must enjoy a train journey.", "converted": "Must a man enjoy a train journey?"},
             {"instruction": "Affirmative to Interrogative", "original": "We should be optimistic about life.", "converted": "Should we be optimistic about life?"},
             {"instruction": "Affirmative to Interrogative", "original": "You must learn English.", "converted": "Must you learn English?"},
-            {"instruction": "Affirmative to Interrogative", "original": "Only the foolish can disobey the true importance of English.", "converted": "Can only the foolish disobey the true importance of English?"},
             {"instruction": "Affirmative to Interrogative", "original": "Students should observe the rules of health.", "converted": "Should students observe the rules of health?"},
             {"instruction": "Affirmative to Interrogative", "original": "We should be patriots.", "converted": "Should we be patriots?"},
             {"instruction": "Affirmative to Interrogative", "original": "We should read books to gain knowledge.", "converted": "Should we read books to gain knowledge?"},
             {"instruction": "Affirmative to Interrogative", "original": "We should read newspaper to know the outside world more.", "converted": "Should we read newspaper to know the outside world more?"},
             {"instruction": "Affirmative to Interrogative", "original": "A student can visit all the renowned libraries of the world without going there.", "converted": "Can a student visit all the renowned libraries of the world without going there?"},
             {"instruction": "Affirmative to Interrogative", "original": "He can succeed in life.", "converted": "Can he succeed in life?"},
-            {"instruction": "Affirmative to Interrogative", "original": "Hard work is needed for success.", "converted": "Is hard work needed for success?"},
             {"instruction": "Affirmative to Interrogative", "original": "The government has taken necessary steps to keep the price hike under control.", "converted": "Has the government taken necessary steps to keep the price hike under control?"},
             {"instruction": "Affirmative to Interrogative", "original": "The culprits should be punished.", "converted": "Should the culprits be punished?"},
             {"instruction": "Affirmative to Interrogative", "original": "Illiterate people should be given opportunities.", "converted": "Should illiterate people be given opportunities?"}
@@ -97,10 +93,10 @@
           ]
         },
         {
-          "rule_description": "For sentences with 'nobody/no one/none', use 'who' or 'is there any'.",
+          "rule_description": "For sentences with 'nobody/no one/none', change to 'anybody/anyone' and use an auxiliary verb.",
           "examples": [
             {"instruction": "Affirmative to Interrogative", "original": "Nobody respects him.", "converted": "Does anybody respect him?"},
-            {"instruction": "Affirmative to Interrogative", "original": "Nobody wants his children to be terrorist in future.", "converted": "Does anybody want his children to be terrorist in future?"},
+            {"instruction": "Affirmative to Interrogative", "original": "Nobody wants his children to be terrorists in the future.", "converted": "Does anybody want his children to be terrorists in the future?"},
             {"instruction": "Affirmative to Interrogative", "original": "No one can deny its necessity.", "converted": "Can anyone deny its necessity?"}
           ]
         },
@@ -120,22 +116,16 @@
         {
           "rule_description": "Add 'not' after auxiliary verb; change 'some' to 'any', 'already' to 'yet'.",
           "examples": [
-            {"instruction": "Affirmative to Negative", "original": "It lives together.", "converted": "It does not live together."},
             {"instruction": "Affirmative to Negative", "original": "It is a very important asset.", "converted": "It is not a very important asset."},
             {"instruction": "Affirmative to Negative", "original": "It is a great curse.", "converted": "It is not a great curse."},
-            {"instruction": "Affirmative to Negative", "original": "He becomes a very valuable person.", "converted": "He does not become a very valuable person."},
             {"instruction": "Affirmative to Negative", "original": "The river is very useful to our farmers.", "converted": "The river is not very useful to our farmers."},
-            {"instruction": "Affirmative to Negative", "original": "The young generation showed very positive attitude in this regard.", "converted": "The young generation did not show very positive attitude in this regard."},
-            {"instruction": "Affirmative to Negative", "original": "A student copying in the exam only deceives himself.", "converted": "A student copying in the exam does not deceive others."},
             {"instruction": "Affirmative to Negative", "original": "Our examination system should be moderated.", "converted": "Our examination system should not be moderated."},
             {"instruction": "Affirmative to Negative", "original": "The government is sincere in removing this crime.", "converted": "The government is not sincere in removing this crime."},
             {"instruction": "Affirmative to Negative", "original": "It contains authentic news.", "converted": "It does not contain authentic news."},
             {"instruction": "Affirmative to Negative", "original": "A journey by train is always enjoyable.", "converted": "A journey by train is not always enjoyable."},
             {"instruction": "Affirmative to Negative", "original": "Initially the questions may seem difficult.", "converted": "Initially the questions may not seem difficult."},
             {"instruction": "Affirmative to Negative", "original": "Waterlogging is a very painful problem in Dhaka city.", "converted": "Waterlogging is not a very painful problem in Dhaka city."},
-            {"instruction": "Affirmative to Negative", "original": "The government must address the problem properly.", "converted": "The government must not address the problem properly."},
             {"instruction": "Affirmative to Negative", "original": "Illiteracy is a major problem in society.", "converted": "Illiteracy is not a major problem in society."},
-            {"instruction": "Affirmative to Negative", "original": "Illiteracy hampers social progress.", "converted": "Illiteracy does not hamper social progress."},
             {"instruction": "Affirmative to Negative", "original": "Reading books is a source of great pleasure.", "converted": "Reading books is not a source of great pleasure."}
           ]
         },
@@ -154,29 +144,29 @@
         {
           "rule_description": "For 'must', change to 'cannot but' or 'cannot help'.",
           "examples": [
-            {"instruction": "Affirmative to Negative", "original": "We must learn how to use computer.", "converted": "We cannot but learn how to use computer."},
+            {"instruction": "Affirmative to Negative", "original": "We must learn how to use computers.", "converted": "We cannot but learn how to use computers."},
             {"instruction": "Affirmative to Negative", "original": "We must try our best to improve its present position.", "converted": "We cannot but try our best to improve its present position."},
             {"instruction": "Affirmative to Negative", "original": "You must learn English.", "converted": "You cannot but learn English."}
           ]
         },
         {
-          "rule_description": "For 'as...as' affirmative, change to 'not less...than' or comparative form.",
+          "rule_description": "Change superlative or comparative affirmative degrees into positive negative degrees.",
           "examples": [
-            {"instruction": "Affirmative to Negative", "original": "The moon is not as big as the earth.", "converted": "The moon is smaller than the earth."},
-            {"instruction": "Affirmative to Negative", "original": "No other person is as hated as a corrupt person.", "converted": "A corrupt person is the most hated person."},
-            {"instruction": "Affirmative to Negative", "original": "No insect is as industrious as the bee.", "converted": "The bee is the most industrious insect."},
-            {"instruction": "Affirmative to Negative", "original": "Nothing is as corrosive as the war.", "converted": "War is the most corrosive thing."},
-            {"instruction": "Affirmative to Negative", "original": "No other city in Bangladesh is as populous as Dhaka.", "converted": "Dhaka is the most populous city in Bangladesh."},
-            {"instruction": "Affirmative to Negative", "original": "No other person among us is as happy as a simple man.", "converted": "A simple man is the happiest person among us."},
-            {"instruction": "Affirmative to Negative", "original": "No other student in the class is as bad as a failed student.", "converted": "A failed student is the worst student in the class."},
-            {"instruction": "Affirmative to Negative", "original": "Very few countries in the world are as populous as Bangladesh.", "converted": "Bangladesh is one of the most populous countries in the world."},
-            {"instruction": "Affirmative to Negative", "original": "Very few problems are as severe as illiteracy.", "converted": "Illiteracy is one of the most severe problems."}
+            {"instruction": "Affirmative to Negative", "original": "The earth is bigger than the moon.", "converted": "The moon is not as big as the earth."},
+            {"instruction": "Affirmative to Negative", "original": "A corrupt person is the most hated person.", "converted": "No other person is as hated as a corrupt person."},
+            {"instruction": "Affirmative to Negative", "original": "The bee is the most industrious insect.", "converted": "No insect is as industrious as the bee."},
+            {"instruction": "Affirmative to Negative", "original": "War is the most corrosive thing.", "converted": "Nothing is as corrosive as war."},
+            {"instruction": "Affirmative to Negative", "original": "Dhaka is the most populous city in Bangladesh.", "converted": "No other city in Bangladesh is as populous as Dhaka."},
+            {"instruction": "Affirmative to Negative", "original": "A simple man is the happiest person among us.", "converted": "No other person among us is as happy as a simple man."},
+            {"instruction": "Affirmative to Negative", "original": "A failed student is the worst student in the class.", "converted": "No other student in the class is as bad as a failed student."},
+            {"instruction": "Affirmative to Negative", "original": "Bangladesh is one of the most populous countries in the world.", "converted": "Very few countries in the world are as populous as Bangladesh."},
+            {"instruction": "Affirmative to Negative", "original": "Illiteracy is one of the most severe problems.", "converted": "Very few problems are as severe as illiteracy."}
           ]
         },
         {
-          "rule_description": "For 'both...and', change to 'neither...nor'.",
+          "rule_description": "For 'both...and', change to 'not only... but also' to preserve meaning while introducing a negative modifier.",
           "examples": [
-            {"instruction": "Affirmative to Negative", "original": "They give us both knowledge and pleasure.", "converted": "They give us neither knowledge nor pleasure."}
+            {"instruction": "Affirmative to Negative", "original": "They give us both knowledge and pleasure.", "converted": "They give us not only knowledge but also pleasure."}
           ]
         },
         {
@@ -233,136 +223,173 @@
       ]
     },
     {
-      "category_name": "Affirmative to Compound",
+      "category_name": "Simple to Compound and Complex to Compound",
       "rules": [
         {
           "rule_description": "Change simple sentence with infinitive of purpose to compound using 'and'.",
           "examples": [
-            {"instruction": "Affirmative to Compound", "original": "Bees store honey in the hive to eat during winter.", "converted": "Bees store honey in the hive and eat it during winter."},
-            {"instruction": "Affirmative to Compound", "original": "We need flowers to decorate a place.", "converted": "We need flowers and decorate a place."},
-            {"instruction": "Affirmative to Compound", "original": "He disguised himself as a poor traveller to survive.", "converted": "He disguised himself as a poor traveller and wanted to survive."},
-            {"instruction": "Affirmative to Compound", "original": "We should read books to acquire knowledge.", "converted": "We should read books and acquire knowledge."},
-            {"instruction": "Affirmative to Compound", "original": "He contributed much money for education to educate the poor students.", "converted": "He contributed much money for education and educated the poor students."},
-            {"instruction": "Affirmative to Compound", "original": "We should take regular physical exercise and a balanced diet to improve our health.", "converted": "We should take regular physical exercise and a balanced diet and improve our health."}
+            {"instruction": "Simple to Compound", "original": "Bees store honey in the hive to eat during winter.", "converted": "Bees store honey in the hive, and they eat it during winter."},
+            {"instruction": "Simple to Compound", "original": "We need flowers to decorate a place.", "converted": "We want to decorate a place, and so we need flowers."},
+            {"instruction": "Simple to Compound", "original": "He disguised himself as a poor traveller to survive.", "converted": "He wanted to survive, and so he disguised himself as a poor traveller."},
+            {"instruction": "Simple to Compound", "original": "We should read books to acquire knowledge.", "converted": "We should read books, and we will acquire knowledge."},
+            {"instruction": "Simple to Compound", "original": "He contributed much money to education to educate poor students.", "converted": "He contributed much money to education, and he educated poor students."},
+            {"instruction": "Simple to Compound", "original": "We should take regular physical exercise and eat a balanced diet to improve our health.", "converted": "We should take regular physical exercise and eat a balanced diet, and this will improve our health."}
           ]
         },
         {
           "rule_description": "Change complex sentence with 'though/although' to compound using 'but'.",
           "examples": [
-            {"instruction": "Affirmative to Compound", "original": "Though we have strict laws, we are still affected by this evil.", "converted": "We have strict laws but we are still affected by this evil."},
-            {"instruction": "Affirmative to Compound", "original": "Though the moon gives us light, it does not have the light of its own.", "converted": "The moon gives us light but it does not have the light of its own."},
-            {"instruction": "Affirmative to Compound", "original": "Though he had a vast wealth, he didn’t spend for his own.", "converted": "He had a vast wealth but he didn’t spend for his own."},
-            {"instruction": "Affirmative to Compound", "original": "Though they are coward, they are clever.", "converted": "They are coward but they are clever."},
-            {"instruction": "Affirmative to Compound", "original": "Though there are laws to punish the terrorists, they are not properly applied.", "converted": "There are laws to punish the terrorists but they are not properly applied."},
-            {"instruction": "Affirmative to Compound", "original": "Though it is a blessing, it has dark sides.", "converted": "It is a blessing but it has dark sides."},
-            {"instruction": "Affirmative to Compound", "original": "Though we take utmost care, we cannot avoid death.", "converted": "We take utmost care but we cannot avoid death."},
-            {"instruction": "Affirmative to Compound", "original": "Though a healthy man is an asset to his family, an unhealthy man is a liability.", "converted": "A healthy man is an asset to his family but an unhealthy man is a liability."},
-            {"instruction": "Affirmative to Compound", "original": "Though cricket is a costly game, people of all classes enjoy playing it.", "converted": "Cricket is a costly game but people of all classes enjoy playing it."}
+            {"instruction": "Complex to Compound", "original": "Though we have strict laws, we are still affected by this evil.", "converted": "We have strict laws, but we are still affected by this evil."},
+            {"instruction": "Complex to Compound", "original": "Though the moon gives us light, it does not have its own light.", "converted": "The moon gives us light, but it does not have its own light."},
+            {"instruction": "Complex to Compound", "original": "Though he had vast wealth, he didn’t spend it on himself.", "converted": "He had vast wealth, but he didn’t spend it on himself."},
+            {"instruction": "Complex to Compound", "original": "Though they are cowards, they are clever.", "converted": "They are cowards, but they are clever."},
+            {"instruction": "Complex to Compound", "original": "Though there are laws to punish terrorists, they are not properly applied.", "converted": "There are laws to punish terrorists, but they are not properly applied."},
+            {"instruction": "Complex to Compound", "original": "Though it is a blessing, it has its dark sides.", "converted": "It is a blessing, but it has its dark sides."},
+            {"instruction": "Complex to Compound", "original": "Though we take the utmost care, we cannot avoid death.", "converted": "We take the utmost care, but we cannot avoid death."},
+            {"instruction": "Complex to Compound", "original": "Though a healthy man is an asset to his family, an unhealthy man is a liability.", "converted": "A healthy man is an asset to his family, but an unhealthy man is a liability."},
+            {"instruction": "Complex to Compound", "original": "Though cricket is a costly game, people of all classes enjoy playing it.", "converted": "Cricket is a costly game, but people of all classes enjoy playing it."}
           ]
         },
         {
           "rule_description": "Change simple sentence with participle phrase to compound using 'and'.",
           "examples": [
-            {"instruction": "Affirmative to Compound", "original": "Seeing the bees, we think of the importance of activity.", "converted": "We see the bees and think of the importance of activity."},
-            {"instruction": "Affirmative to Compound", "original": "Collecting subscription, they bought relief goods for the flood affected people.", "converted": "They collected subscription and bought relief goods."},
-            {"instruction": "Affirmative to Compound", "original": "Entering the kingdom of the prince, he captured a large village.", "converted": "He entered the kingdom of the prince and captured a large village."},
-            {"instruction": "Affirmative to Compound", "original": "Going to the Sunderbans, we saw many animals there.", "converted": "We went to the Sunderbans and saw many animals there."},
-            {"instruction": "Affirmative to Compound", "original": "By working hard, we can improve our lot.", "converted": "We work hard and can improve our lot."},
-            {"instruction": "Affirmative to Compound", "original": "By reading good books, we can enrich our mind.", "converted": "We read good books and can enrich our mind."},
-            {"instruction": "Affirmative to Compound", "original": "By paying taxes he obeys the law.", "converted": "He pays taxes and obeys the law."},
-            {"instruction": "Affirmative to Compound", "original": "By using it, we can get many new pieces of information.", "converted": "We use it and can get many new pieces of information."},
-            {"instruction": "Affirmative to Compound", "original": "By applying the law properly, we can get rid of it.", "converted": "We apply the law properly and can get rid of it."}
+            {"instruction": "Simple to Compound", "original": "Seeing the bees, we think of the importance of activity.", "converted": "We see the bees, and we think of the importance of activity."},
+            {"instruction": "Simple to Compound", "original": "Collecting subscriptions, they bought relief goods for the flood-affected people.", "converted": "They collected subscriptions, and they bought relief goods for the flood-affected people."},
+            {"instruction": "Simple to Compound", "original": "Entering the kingdom of the prince, he captured a large village.", "converted": "He entered the kingdom of the prince, and he captured a large village."},
+            {"instruction": "Simple to Compound", "original": "Going to the Sundarbans, we saw many animals.", "converted": "We went to the Sundarbans, and we saw many animals."},
+            {"instruction": "Simple to Compound", "original": "By working hard, we can improve our lot.", "converted": "We must work hard, and then we can improve our lot."},
+            {"instruction": "Simple to Compound", "original": "By reading good books, we can enrich our minds.", "converted": "We read good books, and we can enrich our minds."},
+            {"instruction": "Simple to Compound", "original": "By paying taxes, he obeys the law.", "converted": "He pays his taxes, and he obeys the law."},
+            {"instruction": "Simple to Compound", "original": "By using it, we can get many new pieces of information.", "converted": "We use it, and we can get many new pieces of information."},
+            {"instruction": "Simple to Compound", "original": "By applying the law properly, we can get rid of it.", "converted": "We apply the law properly, and we can get rid of it."}
           ]
         },
         {
           "rule_description": "Change complex sentence with 'if' (conditional) to compound using 'and' or 'or'.",
           "examples": [
-            {"instruction": "Affirmative to Compound", "original": "If you study well, you will be able to learn it.", "converted": "Study well and you will be able to learn it."},
-            {"instruction": "Affirmative to Compound", "original": "If you read, you will learn.", "converted": "Read and you will learn."},
-            {"instruction": "Affirmative to Compound", "original": "If we destroy mangrove forest, we will lose our ecological balance.", "converted": "Destroy mangrove forest and we will lose our ecological balance."},
-            {"instruction": "Affirmative to Compound", "original": "If we resist this malady, we can strengthen our education.", "converted": "Resist this malady and we can strengthen our education."},
-            {"instruction": "Affirmative to Compound", "original": "If we use time properly, we can be benefited.", "converted": "Use time properly and we can be benefited."},
-            {"instruction": "Affirmative to Compound", "original": "If a student answers all the questions correctly, he will get good marks.", "converted": "Answer all the questions correctly and he will get good marks."},
-            {"instruction": "Affirmative to Compound", "original": "If you watch television, you can learn many things.", "converted": "Watch television and you can learn many things."},
-            {"instruction": "Affirmative to Compound", "original": "If we ensure education for all, our society will progress.", "converted": "Ensure education for all and our society will progress."}
+            {"instruction": "Complex to Compound", "original": "If you study well, you will be able to learn it.", "converted": "Study well, and you will be able to learn it."},
+            {"instruction": "Complex to Compound", "original": "If you read, you will learn.", "converted": "Read, and you will learn."},
+            {"instruction": "Complex to Compound", "original": "If we destroy mangrove forests, we will lose our ecological balance.", "converted": "Destroy mangrove forests, and we will lose our ecological balance."},
+            {"instruction": "Complex to Compound", "original": "If we resist this malady, we can strengthen our education.", "converted": "Resist this malady, and we can strengthen our education."},
+            {"instruction": "Complex to Compound", "original": "If we use time properly, we will benefit.", "converted": "Use time properly, and we will benefit."},
+            {"instruction": "Complex to Compound", "original": "If you answer all the questions correctly, you will get good marks.", "converted": "Answer all the questions correctly, and you will get good marks."},
+            {"instruction": "Complex to Compound", "original": "If you watch television, you can learn many things.", "converted": "Watch television, and you can learn many things."},
+            {"instruction": "Complex to Compound", "original": "If we ensure education for all, our society will progress.", "converted": "Ensure education for all, and our society will progress."}
+          ]
+        },
+        {
+          "rule_description": "Change simple sentence with 'in spite of/despite' to compound using 'but/yet'.",
+          "examples": [
+            {"instruction": "Simple to Compound", "original": "In spite of his poverty, he is honest.", "converted": "He is poor, but he is honest."},
+            {"instruction": "Simple to Compound", "original": "Despite working hard, she failed the exam.", "converted": "She worked hard, yet she failed the exam."},
+            {"instruction": "Simple to Compound", "original": "In spite of being sick, he attended the meeting.", "converted": "He was sick, but he attended the meeting."},
+            {"instruction": "Simple to Compound", "original": "Despite his enormous wealth, he is unhappy.", "converted": "He has enormous wealth, yet he is unhappy."}
+          ]
+        },
+        {
+          "rule_description": "Change complex sentence with 'as/since/when' to compound using 'and/and so'.",
+          "examples": [
+            {"instruction": "Complex to Compound", "original": "As the weather was rough, we stayed home.", "converted": "The weather was rough, and so we stayed home."},
+            {"instruction": "Complex to Compound", "original": "Since he is weak, he cannot walk fast.", "converted": "He is weak, and therefore he cannot walk fast."},
+            {"instruction": "Complex to Compound", "original": "When the teacher entered the classroom, the students stood up.", "converted": "The teacher entered the classroom, and the students stood up."},
+            {"instruction": "Complex to Compound", "original": "Since the water is salty, they cannot drink it.", "converted": "The water is salty, and so they cannot drink it."}
+          ]
+        },
+        {
+          "rule_description": "Change simple sentence with 'besides + gerund' to compound using 'not only... but also'.",
+          "examples": [
+            {"instruction": "Simple to Compound", "original": "Besides being a brilliant student, she is a fine singer.", "converted": "She is not only a brilliant student but also a fine singer."},
+            {"instruction": "Simple to Compound", "original": "Besides giving me advice, he helped me with money.", "converted": "He not only gave me advice but also helped me with money."},
+            {"instruction": "Simple to Compound", "original": "Besides working in the office, he manages his family business.", "converted": "He not only works in the office but also manages his family business."}
           ]
         }
       ]
     },
     {
-      "category_name": "Affirmative to Complex",
+      "category_name": "Simple to Complex",
       "rules": [
         {
-          "rule_description": "Change simple sentence with infinitive of purpose to complex using 'so that'.",
+          "rule_description": "Change simple sentence with participle phrase to complex by adding subordinate clause (when/if/as).",
           "examples": [
-            {"instruction": "Affirmative to Complex", "original": "We should read books to acquire knowledge.", "converted": "We should read books so that we can acquire knowledge."},
-            {"instruction": "Affirmative to Complex", "original": "Farmers work hard to support themselves.", "converted": "Farmers work hard so that they can support themselves."},
-            {"instruction": "Affirmative to Complex", "original": "A student should try to answer all the questions to do good in the exam.", "converted": "A student should try to answer all the questions so that he can do good in the exam."},
-            {"instruction": "Affirmative to Complex", "original": "We need flowers to decorate a place.", "converted": "We need flowers so that we can decorate a place."},
-            {"instruction": "Affirmative to Complex", "original": "He disguised himself as a poor traveller to survive.", "converted": "He disguised himself as a poor traveller so that he could survive."},
-            {"instruction": "Affirmative to Complex", "original": "She worked hard to shine in life.", "converted": "She worked hard so that she could shine in life."},
-            {"instruction": "Affirmative to Complex", "original": "We should eat the fruit to ensure nutrition.", "converted": "We should eat the fruit so that we can ensure nutrition."}
+            {"instruction": "Simple to Complex", "original": "Seeing the bees, we think of the importance of activity.", "converted": "When we see the bees, we think of the importance of activity."},
+            {"instruction": "Simple to Complex", "original": "Being industrious, everyone can prosper in life.", "converted": "If everyone is industrious, they can prosper."},
+            {"instruction": "Simple to Complex", "original": "By working hard, we can improve our lot.", "converted": "If we work hard, we can improve our lot."},
+            {"instruction": "Simple to Complex", "original": "By visiting the forest, we can enjoy beautiful sights.", "converted": "If we visit the forest, we can enjoy beautiful sights."},
+            {"instruction": "Simple to Complex", "original": "By following the process, every student can achieve a good result.", "converted": "If every student follows the process, he can achieve a good result."},
+            {"instruction": "Simple to Complex", "original": "By learning computer well, we can build our career.", "converted": "If we learn computer well, we can build our career."},
+            {"instruction": "Simple to Complex", "original": "By taking proper steps, we can improve their condition.", "converted": "If we take proper steps, we can improve their condition."},
+            {"instruction": "Simple to Complex", "original": "Having sweet scent and beauty, we love it very much.", "converted": "As it has sweet scent and beauty, we love it very much."},
+            {"instruction": "Simple to Complex", "original": "Entering the kingdom of the prince, he captured a large village.", "converted": "When he entered the kingdom of the prince, he captured a large village."},
+            {"instruction": "Simple to Complex", "original": "Seeing Muhsin, the thief began to cry.", "converted": "When the thief saw Muhsin, he began to cry."},
+            {"instruction": "Simple to Complex", "original": "Collecting subscription, they bought relief goods.", "converted": "After they collected subscription, they bought relief goods."},
+            {"instruction": "Simple to Complex", "original": "Going to the Sunderbans, we saw many animals.", "converted": "When we went to the Sunderbans, we saw many animals."}
           ]
         },
         {
-          "rule_description": "Change simple sentence with participle phrase to complex using 'when/if/as'.",
+          "rule_description": "Change simple sentence with infinitive of purpose to complex using 'so that'.",
           "examples": [
-            {"instruction": "Affirmative to Complex", "original": "Seeing the bees, we think of the importance of activity.", "converted": "When we see the bees, we think of the importance of activity."},
-            {"instruction": "Affirmative to Complex", "original": "Being industrious, everyone can prosper in life.", "converted": "If everyone is industrious, they can prosper in life."},
-            {"instruction": "Affirmative to Complex", "original": "By working hard, we can improve our lot.", "converted": "If we work hard, we can improve our lot."},
-            {"instruction": "Affirmative to Complex", "original": "By visiting the forest, we can enjoy beautiful sights.", "converted": "If we visit the forest, we can enjoy beautiful sights."},
-            {"instruction": "Affirmative to Complex", "original": "By following the process, every student can achieve a good result.", "converted": "If every student follows the process, he can achieve a good result."},
-            {"instruction": "Affirmative to Complex", "original": "By learning computer well, we can build our career.", "converted": "If we learn computer well, we can build our career."},
-            {"instruction": "Affirmative to Complex", "original": "By taking proper steps, we can improve their condition.", "converted": "If we take proper steps, we can improve their condition."},
-            {"instruction": "Affirmative to Complex", "original": "Having sweet scent and beauty, we love it very much.", "converted": "As it has sweet scent and beauty, we love it very much."},
-            {"instruction": "Affirmative to Complex", "original": "Entering the kingdom of the prince, he captured a large village.", "converted": "When he entered the kingdom of the prince, he captured a large village."},
-            {"instruction": "Affirmative to Complex", "original": "Seeing Muhsin, the thief began to cry.", "converted": "When the thief saw Muhsin, he began to cry."}
+            {"instruction": "Simple to Complex", "original": "We should read books to acquire knowledge.", "converted": "We should read books so that we can acquire knowledge."},
+            {"instruction": "Simple to Complex", "original": "Farmers work hard to support themselves.", "converted": "Farmers work hard so that they can support themselves."},
+            {"instruction": "Simple to Complex", "original": "A student should try to answer all the questions to do well.", "converted": "A student should try to answer all the questions so that he can do well."},
+            {"instruction": "Simple to Complex", "original": "We need flowers to decorate a place.", "converted": "We need flowers so that we can decorate a place."},
+            {"instruction": "Simple to Complex", "original": "He disguised himself as a poor traveller to survive.", "converted": "He disguised himself as a poor traveller so that he could survive."},
+            {"instruction": "Simple to Complex", "original": "She worked hard to shine in life.", "converted": "She worked hard so that she could shine in life."},
+            {"instruction": "Simple to Complex", "original": "We should eat the fruit to ensure nutrition.", "converted": "We should eat the fruit so that we can ensure nutrition."}
           ]
         },
         {
           "rule_description": "Change simple sentence with adjective phrase to complex using 'who/which/that'.",
           "examples": [
-            {"instruction": "Affirmative to Complex", "original": "A man having patriotic zeal is called a patriot.", "converted": "A man who has patriotic zeal is called a patriot."},
-            {"instruction": "Affirmative to Complex", "original": "People living below the poverty line lead a miserable life.", "converted": "People who live below the poverty line lead a miserable life."},
-            {"instruction": "Affirmative to Complex", "original": "The programmes telecast by television are very interesting.", "converted": "The programmes that are telecast by television are very interesting."},
-            {"instruction": "Affirmative to Complex", "original": "A student copying in the exam only deceives himself.", "converted": "A student who copies in the exam only deceives himself."},
-            {"instruction": "Affirmative to Complex", "original": "He had a basket full of caps.", "converted": "He had a basket which was full of caps."},
-            {"instruction": "Affirmative to Complex", "original": "There lived an old woman in the house.", "converted": "There lived an old woman who was in the house."},
-            {"instruction": "Affirmative to Complex", "original": "He was born at Sagordari on the bank of the Kapotaksho.", "converted": "He was born at Sagordari which is on the bank of the Kapotaksho."},
-            {"instruction": "Affirmative to Complex", "original": "His teachers recognized him as a precious child.", "converted": "His teachers recognized him as a child who was precious."},
-            {"instruction": "Affirmative to Complex", "original": "The students studying regularly can expect a good result.", "converted": "The students who study regularly can expect a good result."}
+            {"instruction": "Simple to Complex", "original": "A man having patriotic zeal is called a patriot.", "converted": "A man who has patriotic zeal is called a patriot."},
+            {"instruction": "Simple to Complex", "original": "People living below the poverty line lead a miserable life.", "converted": "People who live below the poverty line lead a miserable life."},
+            {"instruction": "Simple to Complex", "original": "The programmes telecast by television are very interesting.", "converted": "The programmes that are telecast by television are very interesting."},
+            {"instruction": "Simple to Complex", "original": "A student copying in the exam only deceives himself.", "converted": "A student who copies in the exam only deceives himself."},
+            {"instruction": "Simple to Complex", "original": "He had a basket full of caps.", "converted": "He had a basket which was full of caps."},
+            {"instruction": "Simple to Complex", "original": "There lived an old woman in the house.", "converted": "There lived an old woman who was in the house."},
+            {"instruction": "Simple to Complex", "original": "He was born at Sagordari on the bank of the Kapotaksho.", "converted": "He was born at Sagordari which is on the bank of the Kapotaksho."},
+            {"instruction": "Simple to Complex", "original": "His teachers recognized him as a precious child.", "converted": "His teachers recognized him as a child who was precious."},
+            {"instruction": "Simple to Complex", "original": "The students studying regularly can expect a good result.", "converted": "The students who study regularly can expect a good result."}
           ]
         },
         {
           "rule_description": "Change simple sentence with 'without' to complex using 'if not'.",
           "examples": [
-            {"instruction": "Affirmative to Complex", "original": "Without learning English we cannot hope to get any good job.", "converted": "If we do not learn English, we cannot hope to get any good job."},
-            {"instruction": "Affirmative to Complex", "original": "Without following this process, you cannot bring a good result.", "converted": "If you do not follow this process, you cannot bring a good result."},
-            {"instruction": "Affirmative to Complex", "original": "Without regular practice, reading skills will not improve.", "converted": "If you do not practice regularly, reading skills will not improve."},
-            {"instruction": "Affirmative to Complex", "original": "Without computer, we cannot imagine our modern life.", "converted": "If we do not have computer, we cannot imagine our modern life."}
+            {"instruction": "Simple to Complex", "original": "Without learning English we cannot hope to get any good job.", "converted": "If we do not learn English, we cannot hope to get any good job."},
+            {"instruction": "Simple to Complex", "original": "Without following this process, you cannot bring a good result.", "converted": "If you do not follow this process, you cannot bring a good result."},
+            {"instruction": "Simple to Complex", "original": "Without regular practice, reading skills will not improve.", "converted": "If you do not practice regularly, reading skills will not improve."},
+            {"instruction": "Simple to Complex", "original": "Without computer, we cannot imagine our modern life.", "converted": "If we do not have a computer, we cannot imagine our modern life."}
           ]
         }
       ]
     },
     {
-      "category_name": "Interrogative to Assertive (Affirmative)",
+      "category_name": "Interrogative to Assertive",
       "rules": [
         {
-          "rule_description": "For 'who does not know' type, change to 'everybody knows'.",
+          "rule_description": "For 'who does not' (negative interrogative), change to 'everybody/everyone' in the affirmative.",
           "examples": [
             {"instruction": "Interrogative to Assertive", "original": "Who does not want to succeed in life?", "converted": "Everybody wants to succeed in life."},
             {"instruction": "Interrogative to Assertive", "original": "Who doesn't know this truth?", "converted": "Everybody knows this truth."},
-            {"instruction": "Interrogative to Assertive", "original": "Who does not know the consequence of Tsunami?", "converted": "Everybody knows the consequence of Tsunami."},
+            {"instruction": "Interrogative to Assertive", "original": "Who does not know the consequences of a tsunami?", "converted": "Everybody knows the consequences of a tsunami."},
             {"instruction": "Interrogative to Assertive", "original": "Who does not know of his kindness?", "converted": "Everybody knows of his kindness."},
             {"instruction": "Interrogative to Assertive", "original": "Who does not know about the charity of Mother Teresa?", "converted": "Everybody knows about the charity of Mother Teresa."},
             {"instruction": "Interrogative to Assertive", "original": "Who doesn't like the moon?", "converted": "Everybody likes the moon."},
-            {"instruction": "Interrogative to Assertive", "original": "Who doesn't know the rose?", "converted": "Everybody knows the rose."},
-            {"instruction": "Interrogative to Assertive", "original": "Who is not now in the threat of violence?", "converted": "Everybody is now in the threat of violence."},
-            {"instruction": "Interrogative to Assertive", "original": "Who does not like social network?", "converted": "Everybody likes social network."}
+            {"instruction": "Interrogative to Assertive", "original": "Who doesn't know about the rose?", "converted": "Everybody knows about the rose."},
+            {"instruction": "Interrogative to Assertive", "original": "Who is not currently under the threat of violence?", "converted": "Everybody is currently under the threat of violence."},
+            {"instruction": "Interrogative to Assertive", "original": "Who does not like social networking?", "converted": "Everybody likes social networking."}
           ]
         },
         {
-          "rule_description": "For negative interrogative with 'isn't/wasn't/don't', change to affirmative.",
+          "rule_description": "For 'who' followed by an affirmative verb, change to 'nobody/no one/none' in the negative.",
+          "examples": [
+            {"instruction": "Interrogative to Assertive", "original": "Who can avoid death?", "converted": "Nobody can avoid death."},
+            {"instruction": "Interrogative to Assertive", "original": "Who believes a liar?", "converted": "Nobody believes a liar."},
+            {"instruction": "Interrogative to Assertive", "original": "Who cares about such trivial matters?", "converted": "No one cares about such trivial matters."},
+            {"instruction": "Interrogative to Assertive", "original": "Who has ever seen the wind?", "converted": "No one has ever seen the wind."}
+          ]
+        },
+        {
+          "rule_description": "For general negative interrogative questions with auxiliary verbs ('isn't/wasn't/don't/shouldn't'), change to a standard affirmative statement.",
           "examples": [
             {"instruction": "Interrogative to Assertive", "original": "Wasn’t it one of the most devastating floods in our country?", "converted": "It was one of the most devastating floods in our country."},
             {"instruction": "Interrogative to Assertive", "original": "Shouldn’t a man learn to live in peace?", "converted": "A man should learn to live in peace."},
@@ -372,16 +399,33 @@
             {"instruction": "Interrogative to Assertive", "original": "Isn't it the symbol of love and beauty?", "converted": "It is the symbol of love and beauty."},
             {"instruction": "Interrogative to Assertive", "original": "Don't people use flowers on different occasions?", "converted": "People use flowers on different occasions."},
             {"instruction": "Interrogative to Assertive", "original": "Shouldn't television telecast educative programmes?", "converted": "Television should telecast educative programmes."},
-            {"instruction": "Interrogative to Assertive", "original": "Isn’t price hike one of the biggest problems for them?", "converted": "Price hike is one of the biggest problems for them."},
+            {"instruction": "Interrogative to Assertive", "original": "Isn’t the price hike one of the biggest problems for them?", "converted": "The price hike is one of the biggest problems for them."},
             {"instruction": "Interrogative to Assertive", "original": "Wasn’t Muhsin one of the best philanthropists in the world?", "converted": "Muhsin was one of the best philanthropists in the world."},
             {"instruction": "Interrogative to Assertive", "original": "Don’t the crows raise the baby cuckoos?", "converted": "The crows raise the baby cuckoos."},
             {"instruction": "Interrogative to Assertive", "original": "Isn’t the day celebrated as Bangladesh’s Second Independence Day?", "converted": "The day is celebrated as Bangladesh’s Second Independence Day."}
           ]
         },
         {
-          "rule_description": "For 'can't' in negative question, change to 'can'.",
+          "rule_description": "For 'can't' in a negative question, change to 'can' in the affirmative statement.",
           "examples": [
-            {"instruction": "Interrogative to Assertive", "original": "Can’t girls work as much as boys?", "converted": "Girls can work as much as boys."}
+            {"instruction": "Interrogative to Assertive", "original": "Can’t girls work as hard as boys?", "converted": "Girls can work as hard as boys."},
+            {"instruction": "Interrogative to Assertive", "original": "Can't we solve this problem together?", "converted": "We can solve this problem together."},
+            {"instruction": "Interrogative to Assertive", "original": "Can't the government take steps against corruption?", "converted": "The government can take steps against corruption."}
+          ]
+        },
+        {
+          "rule_description": "For questions beginning with 'Is there any...', change to 'There is no...' in the assertive.",
+          "examples": [
+            {"instruction": "Interrogative to Assertive", "original": "Is there any use for this broken chair?", "converted": "There is no use for this broken chair."},
+            {"instruction": "Interrogative to Assertive", "original": "Is there any doubt about his honesty?", "converted": "There is no doubt about his honesty."},
+            {"instruction": "Interrogative to Assertive", "original": "Is there any room for compromise?", "converted": "There is no room for compromise."}
+          ]
+        },
+        {
+          "rule_description": "For rhetorical questions beginning with 'What does it matter...', change to 'It does not matter...'.",
+          "examples": [
+            {"instruction": "Interrogative to Assertive", "original": "What does it matter if we lose the game?", "converted": "It does not matter if we lose the game."},
+            {"instruction": "Interrogative to Assertive", "original": "What does it matter if he disagrees with us?", "converted": "It does not matter if he disagrees with us."}
           ]
         }
       ]
@@ -427,63 +471,6 @@
       ]
     },
     {
-      "category_name": "Simple to Complex",
-      "rules": [
-        {
-          "rule_description": "Change simple sentence with participle phrase to complex by adding subordinate clause (when/if/as).",
-          "examples": [
-            {"instruction": "Simple to Complex", "original": "Seeing the bees, we think of the importance of activity.", "converted": "When we see the bees, we think of the importance of activity."},
-            {"instruction": "Simple to Complex", "original": "Being industrious, everyone can prosper in life.", "converted": "If everyone is industrious, they can prosper."},
-            {"instruction": "Simple to Complex", "original": "By working hard, we can improve our lot.", "converted": "If we work hard, we can improve our lot."},
-            {"instruction": "Simple to Complex", "original": "By visiting the forest, we can enjoy beautiful sights.", "converted": "If we visit the forest, we can enjoy beautiful sights."},
-            {"instruction": "Simple to Complex", "original": "By following the process, every student can achieve a good result.", "converted": "If every student follows the process, he can achieve a good result."},
-            {"instruction": "Simple to Complex", "original": "By learning computer well, we can build our career.", "converted": "If we learn computer well, we can build our career."},
-            {"instruction": "Simple to Complex", "original": "By taking proper steps, we can improve their condition.", "converted": "If we take proper steps, we can improve their condition."},
-            {"instruction": "Simple to Complex", "original": "Having sweet scent and beauty, we love it very much.", "converted": "As it has sweet scent and beauty, we love it very much."},
-            {"instruction": "Simple to Complex", "original": "Entering the kingdom of the prince, he captured a large village.", "converted": "When he entered the kingdom of the prince, he captured a large village."},
-            {"instruction": "Simple to Complex", "original": "Seeing Muhsin, the thief began to cry.", "converted": "When the thief saw Muhsin, he began to cry."},
-            {"instruction": "Simple to Complex", "original": "Collecting subscription, they bought relief goods.", "converted": "After they collected subscription, they bought relief goods."},
-            {"instruction": "Simple to Complex", "original": "Going to the Sunderbans, we saw many animals.", "converted": "When we went to the Sunderbans, we saw many animals."}
-          ]
-        },
-        {
-          "rule_description": "Change simple sentence with infinitive of purpose to complex using 'so that'.",
-          "examples": [
-            {"instruction": "Simple to Complex", "original": "We should read books to acquire knowledge.", "converted": "We should read books so that we can acquire knowledge."},
-            {"instruction": "Simple to Complex", "original": "Farmers work hard to support themselves.", "converted": "Farmers work hard so that they can support themselves."},
-            {"instruction": "Simple to Complex", "original": "A student should try to answer all the questions to do good.", "converted": "A student should try to answer all the questions so that he can do good."},
-            {"instruction": "Simple to Complex", "original": "We need flowers to decorate a place.", "converted": "We need flowers so that we can decorate a place."},
-            {"instruction": "Simple to Complex", "original": "He disguised himself as a poor traveller to survive.", "converted": "He disguised himself as a poor traveller so that he could survive."},
-            {"instruction": "Simple to Complex", "original": "She worked hard to shine in life.", "converted": "She worked hard so that she could shine in life."},
-            {"instruction": "Simple to Complex", "original": "We should eat the fruit to ensure nutrition.", "converted": "We should eat the fruit so that we can ensure nutrition."}
-          ]
-        },
-        {
-          "rule_description": "Change simple sentence with adjective phrase to complex using 'who/which/that'.",
-          "examples": [
-            {"instruction": "Simple to Complex", "original": "A man having patriotic zeal is called a patriot.", "converted": "A man who has patriotic zeal is called a patriot."},
-            {"instruction": "Simple to Complex", "original": "People living below the poverty line lead a miserable life.", "converted": "People who live below the poverty line lead a miserable life."},
-            {"instruction": "Simple to Complex", "original": "The programmes telecast by television are very interesting.", "converted": "The programmes that are telecast by television are very interesting."},
-            {"instruction": "Simple to Complex", "original": "A student copying in the exam only deceives himself.", "converted": "A student who copies in the exam only deceives himself."},
-            {"instruction": "Simple to Complex", "original": "He had a basket full of caps.", "converted": "He had a basket which was full of caps."},
-            {"instruction": "Simple to Complex", "original": "There lived an old woman in the house.", "converted": "There lived an old woman who was in the house."},
-            {"instruction": "Simple to Complex", "original": "He was born at Sagordari on the bank of the Kapotaksho.", "converted": "He was born at Sagordari which is on the bank of the Kapotaksho."},
-            {"instruction": "Simple to Complex", "original": "His teachers recognized him as a precious child.", "converted": "His teachers recognized him as a child who was precious."},
-            {"instruction": "Simple to Complex", "original": "The students studying regularly can expect a good result.", "converted": "The students who study regularly can expect a good result."}
-          ]
-        },
-        {
-          "rule_description": "Change simple sentence with 'without' to complex using 'if not'.",
-          "examples": [
-            {"instruction": "Simple to Complex", "original": "Without learning English we cannot hope to get any good job.", "converted": "If we do not learn English, we cannot hope to get any good job."},
-            {"instruction": "Simple to Complex", "original": "Without following this process, you cannot bring a good result.", "converted": "If you do not follow this process, you cannot bring a good result."},
-            {"instruction": "Simple to Complex", "original": "Without regular practice, reading skills will not improve.", "converted": "If you do not practice regularly, reading skills will not improve."},
-            {"instruction": "Simple to Complex", "original": "Without computer, we cannot imagine our modern life.", "converted": "If we do not have computer, we cannot imagine our modern life."}
-          ]
-        }
-      ]
-    },
-    {
       "category_name": "Complex to Simple",
       "rules": [
         {
@@ -503,12 +490,12 @@
           "rule_description": "Change complex sentence with 'if' to simple using 'by + gerund' or 'without'.",
           "examples": [
             {"instruction": "Complex to Simple", "original": "If we do not cultivate the habit of speaking the truth, we cannot command the confidence of others.", "converted": "Without cultivating the habit of speaking the truth, we cannot command the confidence of others."},
-            {"instruction": "Complex to Simple", "original": "If a student answers all the questions correctly, he will get good marks.", "converted": "Answering all the questions correctly, a student will get good marks."},
-            {"instruction": "Complex to Simple", "original": "If you watch television, you can learn many things.", "converted": "Watching television, you can learn many things."},
-            {"instruction": "Complex to Simple", "original": "If we ensure education for all, our society will progress.", "converted": "Ensuring education for all, our society will progress."},
-            {"instruction": "Complex to Simple", "original": "If we read newspapers, we can enrich our knowledge.", "converted": "Reading newspapers, we can enrich our knowledge."},
-            {"instruction": "Complex to Simple", "original": "If we use time properly, we can be benefited.", "converted": "Using time properly, we can be benefited."},
-            {"instruction": "Complex to Simple", "original": "If a student fails in the examination, he suffers from inferiority complex.", "converted": "Failing in the examination, a student suffers from inferiority complex."}
+            {"instruction": "Complex to Simple", "original": "If a student answers all the questions correctly, he will get good marks.", "converted": "By answering all the questions correctly, a student will get good marks."},
+            {"instruction": "Complex to Simple", "original": "If you watch television, you can learn many things.", "converted": "By watching television, you can learn many things."},
+            {"instruction": "Complex to Simple", "original": "If we ensure education for all, our society will progress.", "converted": "By ensuring education for all, our society will progress."},
+            {"instruction": "Complex to Simple", "original": "If we read newspapers, we can enrich our knowledge.", "converted": "By reading newspapers, we can enrich our knowledge."},
+            {"instruction": "Complex to Simple", "original": "If we use time properly, we can be benefited.", "converted": "By using time properly, we can be benefited."},
+            {"instruction": "Complex to Simple", "original": "If a student fails in the examination, he suffers from inferiority complex.", "converted": "By failing in the examination, a student suffers from inferiority complex."}
           ]
         },
         {
@@ -516,11 +503,11 @@
           "examples": [
             {"instruction": "Complex to Simple", "original": "The man who knows English well can go abroad.", "converted": "The man knowing English well can go abroad."},
             {"instruction": "Complex to Simple", "original": "People who live in villages are mainly farmers.", "converted": "People living in villages are mainly farmers."},
-            {"instruction": "Complex to Simple", "original": "The people who are greedy are responsible for price spiral.", "converted": "The greedy people are responsible for price spiral."},
+            {"instruction": "Complex to Simple", "original": "The people who are greedy are responsible for price spiral.", "converted": "The greedy people are responsible for the price spiral."},
             {"instruction": "Complex to Simple", "original": "The people who live in the slum suffer terribly.", "converted": "The people living in the slum suffer terribly."},
-            {"instruction": "Complex to Simple", "original": "The education that he learnt from this institution played better role in his life.", "converted": "The education learnt from this institution played better role in his life."},
+            {"instruction": "Complex to Simple", "original": "The education that he learnt from this institution played a better role in his life.", "converted": "The education learnt from this institution played a better role in his life."},
             {"instruction": "Complex to Simple", "original": "Those who do not read books keep themselves aloof.", "converted": "Non-readers keep themselves aloof."},
-            {"instruction": "Complex to Simple", "original": "People who are good at computer are in great demand.", "converted": "People good at computer are in great demand."},
+            {"instruction": "Complex to Simple", "original": "People who are good at computers are in great demand.", "converted": "People good at computers are in great demand."},
             {"instruction": "Complex to Simple", "original": "The freedom fighters who died in the Liberation War are called martyrs.", "converted": "The freedom fighters dying in the Liberation War are called martyrs."}
           ]
         },
@@ -564,7 +551,7 @@
       "category_name": "Imperative to Assertive",
       "rules": [
         {
-          "rule_description": "For imperative with 'Let's', change to 'We should'.",
+          "rule_description": "For imperative with 'Let us' or 'Let's', change to 'We should'.",
           "examples": [
             {"instruction": "Imperative to Assertive", "original": "Let's be industrious like the bee.", "converted": "We should be industrious like the bee."},
             {"instruction": "Imperative to Assertive", "original": "Let us not elaborate any answer unnecessarily.", "converted": "We should not elaborate any answer unnecessarily."},
@@ -578,7 +565,7 @@
           ]
         },
         {
-          "rule_description": "For imperative without 'Let's', change to 'You should'.",
+          "rule_description": "For imperative without 'Let us', change to 'You should'.",
           "examples": [
             {"instruction": "Imperative to Assertive", "original": "Take care of your health.", "converted": "You should take care of your health."}
           ]

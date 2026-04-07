@@ -4,7 +4,7 @@
       "category_name": "Affirmative to Interrogative",
       "rules": [
         {
-          "rule_description": "For affirmative sentences with 'is/am/are/was/were' + complement, form interrogative by inverting subject and verb.",
+          "rule_description": "For affirmative sentences with 'is/am/are/was/were', form a negative interrogative by moving the verb to the front and adding 'n't' (or 'not' after the subject).",
           "examples": [
             {"instruction": "Affirmative to Interrogative", "original": "The bee is one of the busiest insects.", "converted": "Is the bee one of the busiest insects?"},
             {"instruction": "Affirmative to Interrogative", "original": "Optimism is a great quality.", "converted": "Is optimism a great quality?"},
@@ -44,7 +44,7 @@
           ]
         },
         {
-          "rule_description": "For affirmative sentences in the present or past indefinite tense, use 'do/does/did' before the subject.",
+          "rule_description": "For affirmative sentences in the present or past indefinite tense, use the negative auxiliaries 'don't/doesn't/didn't' before the subject.",
           "examples": [
             {"instruction": "Affirmative to Interrogative", "original": "Everybody wants to make a good result in the examination.", "converted": "Does everybody want to make a good result in the examination?"},
             {"instruction": "Affirmative to Interrogative", "original": "People of all ages enjoy a moonlit night.", "converted": "Do people of all ages enjoy a moonlit night?"},
@@ -66,7 +66,7 @@
           ]
         },
         {
-          "rule_description": "For sentences with modal auxiliaries (can, could, may, might, must, should, etc.), move the modal to the front.",
+          "rule_description": "For sentences with modal auxiliaries (can, could, should, must), move the modal to the front and make it negative (can't, shouldn't, etc.).",
           "examples": [
             {"instruction": "Affirmative to Interrogative", "original": "We can attract the attention of others when we are optimistic.", "converted": "Can we attract the attention of others when we are optimistic?"},
             {"instruction": "Affirmative to Interrogative", "original": "Women should work as much as men.", "converted": "Should women work as much as men?"},

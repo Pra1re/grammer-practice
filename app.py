@@ -88,36 +88,40 @@ def generate_new_question(rule_desc, category, examples, current_sentence):
     
     # Determine transformation types based on category name
     category_lower = category.lower()
-    
-    if "interrogative" in category_lower:
-        if "affirmative" in category_lower:
-            types = ["Affirmative", "Interrogative"]
-        else:
-            types = ["Assertive", "Interrogative"]
-    elif "negative" in category_lower:
-        types = ["Affirmative", "Negative"]
-    elif "exclamatory" in category_lower:
-        types = ["Assertive", "Exclamatory"]
-    elif "compound" in category_lower:
-        types = ["Simple", "Compound", "Complex"]
-    elif "complex" in category_lower:
-        types = ["Simple", "Complex"]
-    elif "assertive" in category_lower and "imperative" in category_lower:
-        types = ["Assertive", "Imperative"]
-    elif "simple" in category_lower:
-        types = ["Simple", "Complex", "Compound"]
+
+    # DOMAIN 1: Degrees of Comparison
+    # if "comparison" in category_lower or "degree" in category_lower:
+    #     types = ["Positive", "Comparative", "Superlative"]
+
+    # # DOMAIN 2: Voice
+    # elif "active" in category_lower or "passive" in category_lower:
+    #     types = ["Active", "Passive"]
+
+    # DOMAIN 3: Structural Clauses 
+    # (This isolation ensures "Simple" never mixes with "Affirmative/Negative")
+    if any(word in category_lower for word in ["simple", "complex", "compound"]):
+        types = []
+        if "simple" in category_lower: types.append("Simple")
+        if "complex" in category_lower: types.append("Complex")
+        if "compound" in category_lower: types.append("Compound")
+
+    # DOMAIN 4: Meaning & Polarity
+    elif any(word in category_lower for word in ["affirmative", "negative", "assertive", "interrogative", "exclamatory", "imperative"]):
+        types = []
+        # This specific order keeps your UI output consistent and predictable
+        for word in ["Affirmative", "Negative", "Assertive", "Interrogative", "Exclamatory", "Imperative"]:
+            if word.lower() in category_lower:
+                types.append(word)
+
+    # DOMAIN 5: Safe Fallback
     else:
-        # Fallback: try to extract from category name like "Affirmative to Negative"
         if " to " in category:
-            parts = category.split(" to ")
-            if len(parts) == 2:
-                types = parts
-            else:
-                types = ["Original", "Converted"]
+            parts = category.split(" to ", 1)
+            types = [p.strip() for p in parts]
         else:
             types = ["Original", "Converted"]
-    
-    # Ensure we have at least 2 different types
+
+    # Final Safety Check
     if len(types) < 2:
         types = ["Original", "Converted"]
     
